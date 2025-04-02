@@ -19,8 +19,7 @@ Bash-скрипт для обновления сервера Valheim через 
 `SERVER_DIR="/opt/valheim"`                                  Полный путь к серверу Valheim без косой черты в конце пути  
 `WORLD_DIR="/home/steam/.config/unity3d/IronGate/Valheim"`   Полный путь к папке сохранений миров. Обычно это */<домашняя папка пользователя>/.config/unity3d/IronGate/Valheim*  
 `BACKUP_DIR="/backup"`                                       Полный путь к папке хранения резервных копий  
-`LOCK_FILE="/tmp/valheim_update.lock"`                       Файл блокировки для предотвращения конфликтов. Можно его не трогать. 
-`TIMEZONE="Asia/Yekaterinburg"`                              Указываем часовой пояс для запуска по расписанию  
+`LOCK_FILE="/tmp/valheim_update.lock"`                       Файл блокировки для предотвращения конфликтов. Можно его не трогать.  
 `TIME_FOR_UPDATE="06:00"`                                    Время для запуска обновления сервера по расписанию  
 
 # Запуск  
