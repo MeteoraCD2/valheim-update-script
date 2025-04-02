@@ -12,14 +12,14 @@ LOG_FILE="$LOG_DIR/valheim_update_$(date +%Y-%m-%d).log"
 exec > >(while IFS= read -r line; do echo "$(date '+[%Y-%m-%d %H:%M:%S]') $line"; done | tee -a "$LOG_FILE") 2>&1
 
 ## Переменные
-STEAM_DIR="/home/steam/Steam"                               # полный путь к папке установки Steam
+STEAM_DIR="/opt/Steam"                                      # полный путь к папке установки Steam
 STEAM_USER="steam_username"                                 # имя пользователя Steam
 SERVER_LOG="/opt/valheim/logs/valheim.log"                  # файл лога сервера Valheim
 SERVER_DIR="/opt/valheim"                                   # полный путь к серверу Valheim без косой черты в конце пути
 WORLD_DIR="/home/steam/.config/unity3d/IronGate/Valheim"    # полный путь к папке сохранений миров. Обычно это /<домашняя папка пользователя>/.config/unity3d/IronGate/Valheim
-BACKUP_DIR="/root/backup"                                   # полный путь к папке хранения резервных копий
+BACKUP_DIR="/backup"                                        # полный путь к папке хранения резервных копий
 LOCK_FILE="/tmp/valheim_update.lock"                        # Файл блокировки для предотвращения конфликтов
-TIME_FOR_UPDATE="06:00"                                     # Время для запуска обновления сервера
+TIME_FOR_UPDATE="06:00"                                     # Время для запуска обновления сервера по расписанию
 
 
 # Получаем путь к текущему скрипту. Необходимо для проверки FORCE_UPDATE
@@ -93,9 +93,10 @@ check_force_update() {
 
 ##### Функция проверки времени
 check_time_for_update() {
-    # Получаем текущее время в формате HH:MM для Asia/Yekaterinburg
-    current_time=$(TZ=Asia/Yekaterinburg date +"%H:%M")
-    if [[ "$current_time" == "$TIME_FOR_UPDATE" ]]; then
+    # Получаем текущее время в формате HH:MM
+    CURRENT_TIME=$(date +"%H:%M")
+    # сравниваем время с указанным в параметрах
+    if [[ "$CURRENT_TIME" == "$TIME_FOR_UPDATE" ]]; then
         return 0 # Время совпало
     else
         return 1 # Время не совпало
