@@ -12,7 +12,7 @@ Bash-скрипт для обновления сервера Valheim через 
   
 # Измените переменные  
 Обязательно необходимо изменить переменные на свои. В скрипте указаны лишь для примера:  
-
+`LOG_DIR="/opt/valheim/valheim_updates_log"`                 Полный путь к папке сохранения лога данного скрипта
 `STEAM_DIR="/opt/Steam"`                                     Полный путь к папке установки Steam  
 `STEAM_USER="steam_username"`                                Имя пользователя Steam  
 `SERVER_LOG="/opt/valheim/logs/valheim.log"`                 Файл лога сервера Valheim  
